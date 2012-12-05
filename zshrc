@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_CUSTOM=$HOME/.zolarisedsh
+ZSH_CUSTOM=$HOME/.zolarizedsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
