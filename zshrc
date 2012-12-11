@@ -140,12 +140,13 @@ alias srevertall="svn revert -R .; svn st | egrep -e \"^\?\" | awk '{ print \$2 
 alias saddall="svn st | egrep -e \"^\?\" | awk '{ print \$2 }' | while read fileToAdd; do svn add \$fileToAdd; done"
 
 alias gst="git status"
-alias gci="git commit -am "
+alias ga="git add -A; gst"
+alias gci="git commit -am"
 alias gl="git pull; git submodule update"
 alias gpull="git pull; git submodule update"
 alias gp="git push"
 gcip() {
-  gci "$@"; gp
+  ga; gci "$@"; gp
 }
 alias grh="git reset HEAD"
 alias gco="git checkout --"
