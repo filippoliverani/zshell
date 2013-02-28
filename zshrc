@@ -31,20 +31,20 @@ DEFAULT_USER="filippo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git svn vi-mode)
+plugins=(git vi-mode)
 bindkey -v
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/cw:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/local/rvm/bin:/home/filippo/.rvm/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/bin/vendor_perl:/usr/bin/core_perl
 export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
 
 # modified commands
 alias more='less'
-alias df='df -h'
-alias du='du -c -h'
+alias df='dfc -h'
+alias du='cdu -idh'
 alias mkdir='mkdir -p -v'
 alias bc='bc -l'
 alias vi='vim'
@@ -52,6 +52,11 @@ alias svi='sudo vim'
 alias nano='nano -w'
 alias ping='ping -c 5'
 alias ..='cd ..'
+alias ssh='ssh -C4'
+alias grep='grep --color=auto'
+alias top="htop"
+alias diff="colordiff"
+alias svn="colorsvn"
 alias google-chrome='google-chrome --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --memory-model=low --enable-accelerated-compositing "$@"'
 
 # new commands
@@ -111,14 +116,6 @@ alias pacc="pacman -Sc"    # '[c]lean cache'    - delete all not currently insta
 alias pacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
 alias yasu="yaourt -Syu --noconfirm --aur --color"
 
-#colors
-alias diff='colordiff'
-alias grep='grep --color=auto'
-alias df="dfc"
-alias top="htop"
-alias diff="colordiff"
-alias svn="colorsvn"
-
 #adb
 alias adb="sudo /opt/android-sdk/platform-tools/adb kill-server;sudo /opt/android-sdk/platform-tools/adb"
 alias acp="adb push"
@@ -157,13 +154,12 @@ alias glog="git lg"
 alias gremote="git remote -v"
 
 #onebip
-alias ssh="ssh -tt"
 alias onebip="~/create-ctags.sh; cd ~/Projects/onebip/subeng-ultimate"
-alias start-onebip="sudo rc.d start sshd; sudo rc.d start jenkins; sudo rc.d start mongodb; sudo rc.d start httpd; onebip"
-alias test="~/Projects/onebip/subeng-ultimate/script/test.sh"
-alias tests="~/Projects/onebip/subeng-ultimate/script/tests.sh"
+alias start-onebip="sudo rc.d start sshd; sudo rc.d start mongodb; sudo rc.d start httpd; onebip"
+alias otest="~/Projects/onebip/subeng-ultimate/script/test.sh"
+alias otests="~/Projects/onebip/subeng-ultimate/script/tests.sh"
 
 #paguro
 alias paguro="cd /srv/http/wp-content/themes/paguroblu"
-alias start-paguro="sudo rc.d start mysqld; sudo rc.d start httpd"
+alias start-paguro="sudo systemctl start mysqld; sudo rc.d start httpd"
 
