@@ -176,8 +176,9 @@ cmtags() {
     ctags -R -f ~/.tags \
         --exclude=.git \
         --exclude=.work \
-        --exclude=logs\
-        --exclude=docs\
+        --exclude=logs \
+        --exclude=docs \
+        --exclude=vendor \
         --totals=yes \
         --tag-relative=yes \
 }
