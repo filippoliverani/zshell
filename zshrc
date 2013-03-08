@@ -31,7 +31,7 @@ DEFAULT_USER="filippo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
+plugins=(git vi-mode vagrant heroku)
 bindkey -v
 
 source $ZSH/oh-my-zsh.sh
@@ -43,16 +43,15 @@ export EDITOR="vim"
 
 # modified commands
 alias more='less'
-alias df='dfc -h'
+alias df='dfc'
 alias du='cdu -idh'
 alias mkdir='mkdir -p -v'
 alias bc='bc -l'
 alias vi='vim'
 alias svi='sudo vim'
-alias nano='nano -w'
 alias ping='ping -c 5'
 alias ..='cd ..'
-alias ssh='ssh -C4'
+alias ssh='ssh -t -C4'
 alias grep='grep --color=auto'
 alias top="htop"
 alias diff="colordiff"
@@ -65,7 +64,6 @@ alias du1='du --max-depth=1'
 alias hist='history | grep $1'      # requires an argument
 alias openports='netstat --all --numeric --programs --inet --inet6'
 alias pg='ps -Af | grep $1'         # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
-alias renetwork="sudo rc.d restart network; sudo rc.d restart wicd; sudo rc.d stop network"
 alias regrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias redate="sudo ntpdate ntp1.inrim.it"
 
@@ -154,12 +152,39 @@ alias glog="git lg"
 alias gremote="git remote -v"
 
 #onebip
-alias onebip="~/create-ctags.sh; cd ~/Projects/onebip/subeng-ultimate"
+otags() {
+    ctags -R -f ~/.tags \
+        -h .php \
+        --exclude=.git \
+        --exclude=.work \
+        --exclude=logs\
+        --exclude=docs\
+        --totals=yes \
+        --tag-relative=yes \
+        --PHP-kinds=+cf \
+        --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
+        --regex-PHP='/interface ([^ ]*)/\1/c/' \
+        --regex-PHP='/(public |static |abstract |protected |private )+function ([^ ()]*)/\2/f/'
+}
+alias onebip="cd ~/Projects/onebip/subeng-ultimate; otags"
 alias start-onebip="sudo rc.d start sshd; sudo rc.d start mongodb; sudo rc.d start httpd; onebip"
 alias otest="~/Projects/onebip/subeng-ultimate/script/test.sh"
 alias otests="~/Projects/onebip/subeng-ultimate/script/tests.sh"
 
+#cmsite
+cmtags() {
+    ctags -R -f ~/.tags \
+        --exclude=.git \
+        --exclude=.work \
+        --exclude=logs\
+        --exclude=docs\
+        --totals=yes \
+        --tag-relative=yes \
+}
+alias start-cmsite="cd ~/Projects/cmsite; vagrant up; vagrant ssh"
+alias cmsite="cd /vagrant; cmtags"
+
 #paguro
-alias paguro="cd /srv/http/wp-content/themes/paguroblu"
 alias start-paguro="sudo systemctl start mysqld; sudo rc.d start httpd"
+alias paguro="cd /srv/http/wp-content/themes/paguroblu"
 
