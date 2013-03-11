@@ -37,7 +37,7 @@ bindkey -v
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/bin/vendor_perl:/usr/bin/core_perl
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/ruby/bin
 export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
 
@@ -176,8 +176,9 @@ cmtags() {
     ctags -R -f ~/.tags \
         --exclude=.git \
         --exclude=.work \
-        --exclude=logs\
-        --exclude=docs\
+        --exclude=logs \
+        --exclude=docs \
+        --exclude=vendor \
         --totals=yes \
         --tag-relative=yes \
 }
