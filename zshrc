@@ -99,7 +99,6 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
 # pacman aliases (if applicable, replace 'pacman' with 'yaourt'/'pacaur'/whatever)
-alias pacman="pacman-color"
 alias pac="pacman -S"      # default action     - install one or more packages
 alias pacu="pacman -Syu"   # '[u]pdate'         - upgrade all packages to their newest version
 alias pacs="pacman -Ss"    # '[s]earch'         - search for a package using one or more keywords
@@ -167,7 +166,7 @@ otags() {
         --regex-PHP='/(public |static |abstract |protected |private )+function ([^ ()]*)/\2/f/'
 }
 alias onebip="cd ~/Projects/onebip/subeng-ultimate; otags"
-alias start-onebip="sudo rc.d start sshd; sudo rc.d start mongodb; sudo rc.d start httpd; onebip"
+alias start-onebip="sudo rc.d start sshd; sudo systemctl start mongodb; sudo rc.d start httpd; onebip"
 alias otest="~/Projects/onebip/subeng-ultimate/script/test.sh"
 alias otests="~/Projects/onebip/subeng-ultimate/script/tests.sh"
 
