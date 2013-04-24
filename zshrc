@@ -42,6 +42,7 @@ export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
 
 # modified commands
+alias ack='ag'
 alias more='less'
 alias df='dfc'
 alias du='cdu -idh'
