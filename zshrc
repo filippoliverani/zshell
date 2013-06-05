@@ -167,7 +167,7 @@ otags() {
         --regex-PHP='/(public |static |abstract |protected |private )+function ([^ ()]*)/\2/f/'
 }
 alias onebip="cd ~/Projects/onebip/subeng-ultimate; otags"
-alias start-onebip="sudo rc.d start sshd; sudo systemctl start mongodb; sudo rc.d start httpd; onebip"
+alias start-onebip="sudo systemctl start sshd; sudo systemctl start mongodb; sudo systemctl start httpd; onebip"
 alias otest="~/Projects/onebip/subeng-ultimate/script/test.sh"
 alias otests="~/Projects/onebip/subeng-ultimate/script/tests.sh"
 
@@ -186,6 +186,6 @@ alias start-cmsite="cd ~/Projects/cmsite; vagrant up; vagrant ssh"
 alias cmsite="cd /vagrant; cmtags"
 
 #paguro
-alias start-paguro="sudo systemctl start mysqld; sudo rc.d start httpd"
+alias start-paguro="sudo systemctl start mysqld; sudo systemctl start httpd"
 alias paguro="cd /srv/http/wp-content/themes/paguroblu"
 
