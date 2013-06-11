@@ -57,6 +57,7 @@ alias grep='grep --color=auto'
 alias top="htop"
 alias diff="colordiff"
 alias svn="colorsvn"
+alias wget="wget -c"
 alias google-chrome='google-chrome --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --memory-model=low --enable-accelerated-compositing "$@"'
 
 # new commands
