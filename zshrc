@@ -1,42 +1,17 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zolarizedsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster-light"
-
 DEFAULT_USER="filippo"
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git vi-mode vagrant heroku)
+
 bindkey -v
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+unsetopt correct_all
+unsetopt correct
+
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/ruby/bin
 export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
@@ -122,8 +97,7 @@ alias acp="adb push"
 alias abackup="adb backup -apk -shared -all -system -f ~/android-backup-$(date +\"%F\").ab"
 alias arestore="adb restore $(ls -lrt | awk '/android-backup/ { f=$NF };END{ print f }')"
 
-#sviluppo
-
+#dev
 replace() {
     find "$1" -name "$2" -type f -exec sed -i "s/$3/$4/g" {} \;
 }
@@ -153,7 +127,7 @@ alias gdiff="git diff; git diff --cached"
 alias glog="git lg"
 alias gremote="git remote -v"
 
-#onebip
+#projects
 otags() {
     ctags -R -f ~/.tags \
         -h .php \
@@ -173,7 +147,6 @@ alias start-onebip="sudo systemctl start sshd; sudo systemctl start mongodb; sud
 alias otest="~/Projects/onebip/subeng-ultimate/script/test.sh"
 alias otests="~/Projects/onebip/subeng-ultimate/script/tests.sh"
 
-#cmsite
 cmtags() {
     ctags -R -f ~/.tags \
         --exclude=.git \
@@ -187,7 +160,6 @@ cmtags() {
 alias start-cmsite="cd ~/Projects/cmsite; vagrant up; vagrant ssh"
 alias cmsite="cd /vagrant; cmtags"
 
-#paguro
 alias start-paguro="sudo systemctl start mysqld; sudo systemctl start httpd"
 alias paguro="cd /srv/http/wp-content/themes/paguroblu"
 
