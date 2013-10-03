@@ -9,7 +9,7 @@ alias vi='vim'
 alias svi='sudo vim'
 alias ping='ping -c 5'
 alias ..='cd ..'
-alias ssh='ssh -t -C4 -o TCPKeepAlive=yes -o ServerAliveInterval=60'
+alias ssh='TERM=xterm-color ssh -t -C4 -o TCPKeepAlive=yes -o ServerAliveInterval=60'
 alias grep='grep --color=auto'
 alias top="htop"
 alias diff="colordiff"
