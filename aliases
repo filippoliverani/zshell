@@ -15,7 +15,7 @@ alias top="htop"
 alias diff="colordiff"
 alias svn="colorsvn"
 alias wget="wget -c"
-alias google-chrome='google-chrome --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --memory-model=low --enable-accelerated-compositing "$@"'
+alias chromium='chromium --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --memory-model=low --enable-accelerated-compositing "$@"'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
