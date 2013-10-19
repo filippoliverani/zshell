@@ -59,6 +59,7 @@ alias chgrp='chgrp --preserve-root'
 
 # pacman aliases
 alias pacman="pacmatic"
+alias yaourt="sudo powerpill"
 alias yac="yaourt -S"      # default action     - install one or more packages
 alias yac="yaourt -S"      # default action     - install one or more packages
 alias yacu="yaourt -Syu"   # '[u]pdate'         - upgrade all packages to their newest version
@@ -72,7 +73,7 @@ alias yaco="yaourt -Qo"    # '[o]wner'          - determine which package owns a
 alias yacf="yaourt -Ql"    # '[f]iles'          - list all files installed by a given package
 alias yacc="yaourt -Sc"    # '[c]lean cache'    - delete all not currently installed package files
 alias yacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
-alias yasu="yaourt -Syu --noconfirm --aur --color"
+alias yasu="yaourt -Syu --noconfirm --aur"
 
 #adb
 alias adb="sudo /opt/android-sdk/platform-tools/adb kill-server;sudo /opt/android-sdk/platform-tools/adb"
