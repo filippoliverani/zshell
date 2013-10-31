@@ -1,5 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zolarizedsh
+ZSH_THEME="agnoster-light"
 DEFAULT_USER="filippo"
 
 plugins=(git vi-mode vagrant)
@@ -7,7 +8,6 @@ plugins=(git vi-mode vagrant)
 bindkey -v
 
 source $ZSH/oh-my-zsh.sh
-. /usr/share/zsh/site-contrib/powerline.zsh
 
 unsetopt correct_all
 unsetopt correct
