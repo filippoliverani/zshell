@@ -60,20 +60,17 @@ alias chgrp='chgrp --preserve-root'
 # pacman aliases
 alias pacman="pacmatic"
 alias yaourt="sudo powerpill"
-alias yac="yaourt -S"      # default action     - install one or more packages
-alias yac="yaourt -S"      # default action     - install one or more packages
-alias yacu="yaourt -Syu"   # '[u]pdate'         - upgrade all packages to their newest version
-alias yacs="yaourt -Ss"    # '[s]earch'         - search for a package using one or more keywords
-alias yaci="yaourt -Si"    # '[i]nfo'           - show information about a package
-alias yacr="yaourt -R"     # '[r]emove'         - uninstall one or more packages
-alias yacl="yaourt -Sl"    # '[l]ist'           - list all packages of a repository
-alias yacll="yaourt -Qqm"  # '[l]ist [l]ocal'   - list all packages which were locally installed (e.g. AUR packages)
-alias yaclo="yaourt -Qdt"  # '[l]ist [o]rphans' - list all packages which are orphaned
-alias yaco="yaourt -Qo"    # '[o]wner'          - determine which package owns a given file
-alias yacf="yaourt -Ql"    # '[f]iles'          - list all files installed by a given package
-alias yacc="yaourt -Sc"    # '[c]lean cache'    - delete all not currently installed package files
-alias yacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
 alias yasu="yaourt -Syu --noconfirm --aur"
+alias yas="yaourt -S"      # default action     - install one or more packages
+alias yass="yaourt -Ss"    # '[s]earch'         - search for a package using one or more keywords
+alias yasi="yaourt -Si"    # '[i]nfo'           - show information about a package
+alias yar="yaourt -Rs"     # '[r]emove'         - uninstall one or more packages
+alias yall="yaourt -Qqm"  # '[l]ist [l]ocal'   - list all packages which were locally installed (e.g. AUR packages)
+alias yalo="yaourt -Qdt"  # '[l]ist [o]rphans' - list all packages which are orphaned
+alias yao="yaourt -Qo"    # '[o]wner'          - determine which package owns a given file
+alias yaf="yaourt -Ql"    # '[f]iles'          - list all files installed by a given package
+alias yac="yaourt -Sc && sudo pacman-optimize"    # '[c]lean cache'    - delete all not currently installed package files
+alias yam="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
 
 #adb
 alias adb="sudo /opt/android-sdk/platform-tools/adb kill-server;sudo /opt/android-sdk/platform-tools/adb"
