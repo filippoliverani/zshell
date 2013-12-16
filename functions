@@ -9,3 +9,11 @@ function search() {
 replace() {
     find . -name "$1" -type f -exec sed -i "s/$2/$3/g" {} \;
 }
+
+open-tunnel() {
+    ssh -g -R 2222:localhost:22 $1
+}
+
+enter-tunnel() {
+    ssh -t $1 'ssh -p 2222 $2@localhost'
+}

@@ -19,3 +19,4 @@ export EDITOR="vim"
 export TERM=xterm-16color
 
 source $HOME/.zolarizedsh/aliases
+source $HOME/.zolarizedsh/functions
