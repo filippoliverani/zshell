@@ -16,7 +16,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/an
 export PYTHONPATH=/usr/lib/python3.3/site-packages
 export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
-export TERM=xterm-16color
+export TERM=screen-16color
 
 source $HOME/.zolarizedsh/aliases
 source $HOME/.zolarizedsh/functions
