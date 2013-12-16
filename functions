@@ -1,0 +1,11 @@
+function md() {
+    mkdir -p "$@" && cd "$@"
+}
+
+function search() {
+    find . -name "$1"
+}
+
+replace() {
+    find . -name "$1" -type f -exec sed -i "s/$2/$3/g" {} \;
+}

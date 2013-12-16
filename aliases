@@ -83,9 +83,6 @@ alias abackup="adb backup -apk -shared -all -system -f ~/android-backup-$(date +
 alias arestore="adb restore $(ls -lrt | awk '/android-backup/ { f=$NF };END{ print f }')"
 
 #dev
-replace() {
-    find "$1" -name "$2" -type f -exec sed -i "s/$3/$4/g" {} \;
-}
 alias sst="svn st"
 alias sup="svn up"
 alias srm="svn rm"
