@@ -9,12 +9,12 @@ alias vi='vim'
 alias svi='sudo vim'
 alias ping='ping -c 5'
 alias ..='cd ..'
-alias ssh='TERM=xterm-color ssh'
 alias grep='grep --color=auto'
 alias top="htop"
 alias diff="colordiff"
 alias svn="colorsvn"
 alias wget="wget -c"
+alias tmux="TERM=screen-16color tmux"
 alias chromium='chromium --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --memory-model=low --enable-accelerated-compositing "$@"'
 
 # new commands
