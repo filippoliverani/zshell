@@ -15,6 +15,7 @@ alias diff="colordiff"
 alias svn="colorsvn"
 alias wget="wget -c"
 alias tmux="TERM=screen-16color tmux"
+alias tmuxinator="TERM=screen-16color tmuxinator"
 alias chromium='chromium --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --memory-model=low --enable-accelerated-compositing "$@"'
 
 # new commands
