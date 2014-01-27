@@ -18,18 +18,17 @@ enter-tunnel() {
     ssh -t $1 'ssh -p 2222 $2@localhost'
 }
 
-monitor-right() {
-    xrandr --output LVDS1 --auto --primary
+monitor() {
+    main_output=LVDS1
+    outputs=(HDMI1 VGA1 DP1)
 
-    if (xrandr | grep "HDMI1 connected"); then
-       xrandr --output HDMI1 --auto --right-of LVDS1
-    else
-        xrandr --output HDMI1 --off
-    fi
+    xrandr --output $main_output --auto --primary
 
-    if (xrandr | grep "VGA1 connected"); then
-       xrandr --output VGA1 --auto --right-of LVDS1
-    else
-       xrandr --output VGA1 --off
-    fi
+    for output in $outputs; do
+      if (xrandr | grep "$output connected"); then
+        xrandr --output $output --auto --$1-of $main_output
+      else
+        xrandr --output $output --off
+      fi
+    done
 }
