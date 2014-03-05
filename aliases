@@ -63,7 +63,7 @@ alias chgrp='chgrp --preserve-root'
 alias pacman="pacmatic"
 alias yaourt="sudo powerpill"
 alias yasu="yaourt -Syu --noconfirm --aur"
-alias yas="yaourt -S"      # default action     - install one or more packages
+alias yas="yaourt -S --noconfirm"      # default action     - install one or more packages
 alias yass="yaourt -Ss"    # '[s]earch'         - search for a package using one or more keywords
 alias yasi="yaourt -Si"    # '[i]nfo'           - show information about a package
 alias yar="yaourt -Rs"     # '[r]emove'         - uninstall one or more packages
@@ -106,3 +106,7 @@ alias gmv="git mv"
 alias gdiff="git diff; git diff --cached"
 alias glog="git lg"
 alias gremote="git remote -v"
+
+#projects
+alias onebip-browser="chromium --profile-directory='Profile 1' --new-window https://onebip.slack.com/messages/general http://onebip.kanbanize.com/ctrl_board/2 https://go.ci.onebip.com:8154/go/home https://rpm.newrelic.com/accounts/117845/applications/2788364"
+alias cmsite-browser="chromium --profile-directory='Profile 1' --new-window https://trello.com/b/qlC4XmN4/neomobile-cm-site http://ci.cmsite.xpeppers.com/ https://rpm.newrelic.com/accounts/353025/applications/2472558"
