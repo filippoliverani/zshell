@@ -3,7 +3,7 @@ ZSH_CUSTOM=$HOME/.zolarizedsh
 ZSH_THEME="agnoster-light"
 DEFAULT_USER="filippo"
 
-plugins=(git vi-mode vagrant)
+plugins=(git vi-mode vagrant tmux)
 
 bindkey -v
 
@@ -19,3 +19,4 @@ export EDITOR="vim"
 
 source $HOME/.zolarizedsh/aliases
 source $HOME/.zolarizedsh/functions
+source /usr/bin/aws_zsh_completer.sh
