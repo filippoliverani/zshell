@@ -62,7 +62,7 @@ alias chgrp='chgrp --preserve-root'
 # pacman aliases
 alias pacman="pacmatic"
 alias yaourt="sudo powerpill"
-alias yasu="yaourt -Syu --noconfirm --aur"
+alias yasu="yaourt -Syu --noconfirm --aur && sudo pacman-optimize"
 alias yas="yaourt -S --noconfirm"      # default action     - install one or more packages
 alias yass="yaourt -Ss"    # '[s]earch'         - search for a package using one or more keywords
 alias yasi="yaourt -Si"    # '[i]nfo'           - show information about a package
