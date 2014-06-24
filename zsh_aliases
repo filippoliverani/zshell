@@ -16,7 +16,7 @@ alias svn="colorsvn"
 alias wget="wget -c"
 alias tmux="TERM=screen-16color tmux"
 alias tmuxinator="TERM=screen-16color tmuxinator"
-alias chromium='--reset-variation-state --disk-cache-dir=/tmp --disk-cache-size=50000000 --disable-metrics --disable-hang-monitor --disable-dev-tools --disa    ble-logging --disable-plugins-discovery --disable-translate --no-experiments --no-pings --no-referrers --memory-model=low --enable-accelerated-compositing "$@"'
+alias chromium='chromium --reset-variation-state --disk-cache-dir=/tmp --disk-cache-size=50000000 --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --disable-plugins-discovery --disable-translate --no-experiments --no-pings --no-referrers --memory-model=low --enable-accelerated-compositing --ignore-gpu-blacklist'
 alias flux='xflux -l 45.6931823 -g 9.6670895'
 
 # new commands

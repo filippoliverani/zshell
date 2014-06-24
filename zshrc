@@ -19,3 +19,4 @@ export LANG="en_US.UTF-8"
 export EDITOR="vim"
 
 source $HOME/.zolarizedsh/functions
+source $HOME/.zolarizedsh/zsh_aliases
