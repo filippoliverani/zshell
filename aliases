@@ -9,7 +9,7 @@ alias vi='vim'
 alias svi='sudo vim'
 alias ping='ping -c 5'
 alias ..='cd ..'
-alias grep='grep --color=auto'
+alias grep='grep -R --color=always'
 alias top="htop"
 alias diff="colordiff"
 alias svn="colorsvn"
