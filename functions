@@ -18,6 +18,14 @@ enter-tunnel() {
     ssh -t $1 'ssh -p 2222 $2@localhost'
 }
 
+mount-usb() {
+    udisks --mount /dev/sdb1
+}
+
+unmount-usb() {
+    udisks --unmount /dev/sdb1
+}
+
 monitor() {
     main_output=LVDS1
     outputs=(HDMI1 VGA1 DP1)
