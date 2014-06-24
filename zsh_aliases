@@ -9,14 +9,14 @@ alias vi='vim'
 alias svi='sudo vim'
 alias ping='ping -c 5'
 alias ..='cd ..'
-alias grep='grep -R --color=always'
+alias grep='grep --color=always'
 alias top="htop"
 alias diff="colordiff"
 alias svn="colorsvn"
 alias wget="wget -c"
 alias tmux="TERM=screen-16color tmux"
 alias tmuxinator="TERM=screen-16color tmuxinator"
-alias chromium='chromium --disable-metrics --disable-hang-monitor --disable-dev-tools --disable-logging --memory-model=low --enable-accelerated-compositing "$@"'
+alias chromium='--reset-variation-state --disk-cache-dir=/tmp --disk-cache-size=50000000 --disable-metrics --disable-hang-monitor --disable-dev-tools --disa    ble-logging --disable-plugins-discovery --disable-translate --no-experiments --no-pings --no-referrers --memory-model=low --enable-accelerated-compositing "$@"'
 alias flux='xflux -l 45.6931823 -g 9.6670895'
 
 # new commands
@@ -28,6 +28,8 @@ alias pg='ps -Af | grep $1'         # requires an argument (note: /usr/bin/pg is
 alias regrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias redate="sudo ntpdate ntp1.inrim.it"
 alias recapslock="setxkbmap -option ctrl:nocaps"
+alias mount-usb='udisks --mount /dev/sdb1'
+alias umount-usb='udisks --unmount /dev/sdb1'
 
 # privileged access
 if [ $UID -ne 0 ]; then
