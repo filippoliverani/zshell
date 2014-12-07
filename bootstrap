@@ -10,7 +10,7 @@ fi
 
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-ln -sfT $path/zshrc ~/.zshrc
-ln -sfT $path/zsh_aliases ~/.zsh_aliases
+ln -sf $path/zshrc ~/.zshrc
+ln -sf $path/zsh_aliases ~/.zsh_aliases
 
 chsh -s $(which zsh)
