@@ -9,6 +9,7 @@ bindkey -v
 
 source $ZSH/oh-my-zsh.sh
 
+unset GREP_OPTIONS
 unsetopt correct_all
 unsetopt correct
 
