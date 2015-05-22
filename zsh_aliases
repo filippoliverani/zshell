@@ -43,7 +43,7 @@ if [ $UID -ne 0 ]; then
 fi
 
 # ls
-alias ls='ls -hF --color=auto --group-directories-first --time-style=+"%d.%m.%Y %H:%M"'
+alias ls='ls -GFh' #--color=auto --group-directories-first --time-style=+"%d.%m.%Y %H:%M"'
 alias lr='ls -R'                    # recursive ls
 alias ll='ls -al'
 alias la='ll -A'
@@ -55,13 +55,13 @@ alias lm='la | more'
 # safety features
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -I'                    # 'rm -i' prompts for every file
+#alias rm='rm -I'                    # 'rm -i' prompts for every file
 alias ln='ln -i'
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+alias chown='chown' # --preserve-root'
+alias chmod='chmod' # --preserve-root'
+alias chgrp='chgrp' # --preserve-root'
 
-# pacman aliases
+#pacman
 alias pacman="powerpill"
 alias yasu="yaourt -Syu --noconfirm --aur && sudo pacman-optimize"
 alias yas="yaourt -S --noconfirm"      # default action     - install one or more packages
@@ -74,6 +74,18 @@ alias yao="yaourt -Qo"    # '[o]wner'          - determine which package owns a 
 alias yaf="yaourt -Ql"    # '[f]iles'          - list all files installed by a given package
 alias yac="yaourt -Sc && sudo pacman-optimize"    # '[c]lean cache'    - delete all not currently installed package files
 alias yam="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
+
+#brew
+alias brew-upgrade="brew update && brew upgrade --all && brew cleanup"
+
+#pip
+alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+
+#gem
+alias gem-upgrade="gem update --system; gem update"
+
+#all
+alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade"
 
 #adb
 alias adb="sudo /opt/android-sdk/platform-tools/adb kill-server;sudo /opt/android-sdk/platform-tools/adb"

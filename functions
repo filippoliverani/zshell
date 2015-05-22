@@ -1,5 +1,4 @@
-function md() {
-    mkdir -p '$@' && cd '$@'
+function md() { mkdir -p '$@' && cd '$@'
 }
 
 function search() {
@@ -39,4 +38,20 @@ monitor() {
         xrandr --output $output --off
       fi
     done
+}
+
+docker-up() {
+    boot2docker init
+    boot2docker start
+    eval $(boot2docker shellinit)
+}
+
+cask-upgrade() {
+    sudo rm -r `brew --cache`
+    for app in $(brew cask list); do
+      echo "Upgrading $app"
+      brew cask uninstall $app
+      brew cask install --force --appdir="/Applications" $app
+    done
+    brew cask cleanup
 }
