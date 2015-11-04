@@ -40,6 +40,13 @@ monitor() {
     done
 }
 
+tmux-new() {
+    tmux new-session -d -n vim vim
+    tmux new-window -n shell
+    tmux new-window -n git
+    tmux -2 attach-session -d
+}
+
 docker-up() {
     boot2docker init
     boot2docker start

@@ -23,3 +23,5 @@ export EDITOR="vim"
 
 source $HOME/.zolarizedsh/functions
 source $HOME/.zolarizedsh/zsh_aliases
+
+stty -ixon

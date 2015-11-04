@@ -88,7 +88,6 @@ alias gem-upgrade="gem update --system; gem update"
 alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade"
 
 #adb
-alias adb="sudo /opt/android-sdk/platform-tools/adb kill-server;sudo /opt/android-sdk/platform-tools/adb"
 alias acp="adb push"
 alias abackup="adb backup -apk -shared -all -system -f ~/android-backup-$(date +\"%F\").ab"
 alias arestore="adb restore $(ls -lrt | awk '/android-backup/ { f=$NF };END{ print f }')"
@@ -119,6 +118,7 @@ alias gmv="git mv"
 alias gdiff="git diff; git diff --cached"
 alias glog="git lg"
 alias gremote="git remote -v"
+alias gundo="git reset --soft HEAD~1"
 
 #projects
 alias onebip-browser="chromium --profile-directory='Profile 1' --new-window https://onebip.slack.com/messages/general http://onebip.kanbanize.com/ctrl_board/2 http://go.production.public.onebip.com/go/home https://rpm.newrelic.com/accounts/117845/applications/2788364"
