@@ -21,14 +21,11 @@ alias flux='xflux -l 45.6931823 -g 9.6670895'
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
-alias hist='history | grep $1'      # requires an argument
+alias hist='history | grep $1'
 alias openports='netstat --all --numeric --programs --inet --inet6'
-alias pg='ps -Af | grep $1'         # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
+alias pg='ps -Af | grep $1'
 alias regrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias redate="sudo ntpdate ntp1.inrim.it"
-alias recapslock="setxkbmap -option ctrl:nocaps"
-alias mount-usb='udisks --mount /dev/sdb1'
-alias umount-usb='udisks --unmount /dev/sdb1'
 
 # privileged access
 if [ $UID -ne 0 ]; then
@@ -38,13 +35,12 @@ if [ $UID -ne 0 ]; then
     alias root='sudo su'
     alias reboot='sudo reboot'
     alias halt='sudo halt'
-    alias update='sudo pacman -Su'
     alias netcfg='sudo netcfg2'
 fi
 
 # ls
-alias ls='ls -GFh' #--color=auto --group-directories-first --time-style=+"%d.%m.%Y %H:%M"'
-alias lr='ls -R'                    # recursive ls
+alias ls='ls -GFh'
+alias lr='ls -R'
 alias ll='ls -al'
 alias la='ll -A'
 alias lx='ll -BX'                   # sort by extension
@@ -57,26 +53,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 #alias rm='rm -I'                    # 'rm -i' prompts for every file
 alias ln='ln -i'
-alias chown='chown' # --preserve-root'
-alias chmod='chmod' # --preserve-root'
-alias chgrp='chgrp' # --preserve-root'
-
-#pacman
-alias pacman="powerpill"
-alias yasu="yaourt -Syu --noconfirm --aur && sudo pacman-optimize"
-alias yas="yaourt -S --noconfirm"      # default action     - install one or more packages
-alias yass="yaourt -Ss"    # '[s]earch'         - search for a package using one or more keywords
-alias yasi="yaourt -Si"    # '[i]nfo'           - show information about a package
-alias yar="yaourt -Rs"     # '[r]emove'         - uninstall one or more packages
-alias yall="yaourt -Qqm"  # '[l]ist [l]ocal'   - list all packages which were locally installed (e.g. AUR packages)
-alias yalo="yaourt -Qdt"  # '[l]ist [o]rphans' - list all packages which are orphaned
-alias yao="yaourt -Qo"    # '[o]wner'          - determine which package owns a given file
-alias yaf="yaourt -Ql"    # '[f]iles'          - list all files installed by a given package
-alias yac="yaourt -Sc && sudo pacman-optimize"    # '[c]lean cache'    - delete all not currently installed package files
-alias yam="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
 
 #brew
-alias brew-upgrade="brew update && brew upgrade --all && brew cleanup"
+alias brew-upgrade="brew update && brew outdated && brew upgrade --all && brew cleanup"
 
 #pip
 alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -91,6 +70,9 @@ alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade"
 alias acp="adb push"
 alias abackup="adb backup -apk -shared -all -system -f ~/android-backup-$(date +\"%F\").ab"
 alias arestore="adb restore $(ls -lrt | awk '/android-backup/ { f=$NF };END{ print f }')"
+
+#racket
+alias rrepl="racket -i -p neil/sicp -l xrepl"
 
 #dev
 alias sst="svn st"
@@ -119,7 +101,3 @@ alias gdiff="git diff; git diff --cached"
 alias glog="git lg"
 alias gremote="git remote -v"
 alias gundo="git reset --soft HEAD~1"
-
-#projects
-alias onebip-browser="chromium --profile-directory='Profile 1' --new-window https://onebip.slack.com/messages/general http://onebip.kanbanize.com/ctrl_board/2 http://go.production.public.onebip.com/go/home https://rpm.newrelic.com/accounts/117845/applications/2788364"
-alias cmsite-browser="chromium --profile-directory='Profile 1' --new-window https://trello.com/b/qlC4XmN4/neomobile-cm-site http://ci.cmsite.xpeppers.com/ https://rpm.newrelic.com/accounts/353025/applications/2472558"
