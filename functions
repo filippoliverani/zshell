@@ -57,7 +57,7 @@ cask-upgrade() {
     sudo rm -r `brew --cache`
     for app in $(brew cask list); do
       echo "Upgrading $app"
-      brew cask uninstall $app
+      brew cask uninstall --force $app
       brew cask install --force --appdir="/Applications" $app
     done
     brew cask cleanup
