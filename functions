@@ -17,29 +17,6 @@ enter-tunnel() {
     ssh -t $1 'ssh -p 2222 $2@localhost'
 }
 
-monitor() {
-    main_output=LVDS1
-    outputs=(HDMI1 VGA1 DP1)
-
-    if [[ $1 == "left" || $1 == "right" ]] ; then
-      position=$1-of
-    elif [[ $1 = "same" ]] ; then
-      position=$1-as
-    else
-      position=$1
-    fi
-
-    xrandr --output $main_output --auto --primary
-
-    for output in $outputs; do
-      if [[ $position != "off" ]] && (xrandr | grep "$output connected") ; then
-        xrandr --output $output --auto --$position $main_output
-      else
-        xrandr --output $output --off
-      fi
-    done
-}
-
 tmux-new() {
     tmux new-session -d -n vim vim
     tmux new-window -n shell
@@ -48,9 +25,9 @@ tmux-new() {
 }
 
 docker-up() {
-    boot2docker init
-    boot2docker start
-    eval $(boot2docker shellinit)
+  docker-machine start
+  docker-machine env default
+  eval "$(docker-machine env default)"
 }
 
 cask-upgrade() {
