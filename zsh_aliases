@@ -55,7 +55,7 @@ alias mv='mv -i'
 alias ln='ln -i'
 
 #brew
-alias brew-upgrade="brew update && brew outdated && brew upgrade --all && brew cleanup"
+alias brew-upgrade="brew update && brew outdated && brew upgrade --all && brew prune && brew cleanup"
 
 #pip
 alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
