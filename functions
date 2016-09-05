@@ -23,19 +23,3 @@ tmux-new() {
     tmux new-window -n git
     tmux -2 attach-session -d
 }
-
-docker-up() {
-  docker-machine start
-  docker-machine env default
-  eval "$(docker-machine env default)"
-}
-
-cask-upgrade() {
-    sudo rm -r `brew --cache`
-    for app in $(brew cask list); do
-      echo "Upgrading $app"
-      brew cask uninstall --force $app
-      brew cask install --force --appdir="/Applications" $app
-    done
-    brew cask cleanup
-}
