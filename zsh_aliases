@@ -64,11 +64,14 @@ alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e
 #gem
 alias gem-upgrade="gem update --system; gem update"
 
+#npm
+alias npm-upgrade="npm update -g"
+
 #vundle
 alias vundle-upgrade="vim +PluginInstall +qall"
 
 #all
-alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade; vundle-upgrade"
+alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vundle-upgrade"
 
 #adb
 alias acp="adb push"
