@@ -1,4 +1,5 @@
-function md() { mkdir -p '$@' && cd '$@'
+function md() {
+    mkdir -p '$@' && cd '$@'
 }
 
 function search() {
@@ -22,4 +23,11 @@ tmux-new() {
     tmux new-window -n shell
     tmux new-window -n git
     tmux -2 attach-session -d
+}
+
+reset-dns() {
+    sudo networksetup -listallnetworkservices | while read service
+    do
+        sudo networksetup -setdnsservers $service 8.8.8.8 8.8.4.4 > /dev/null 2>&2
+    done
 }
