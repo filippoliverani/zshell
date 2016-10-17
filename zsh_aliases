@@ -55,7 +55,7 @@ alias mv='mv -i'
 alias ln='ln -i'
 
 #brew
-alias brew-upgrade="brew update && brew outdated && brew upgrade --all && brew prune && brew cleanup"
+alias brew-upgrade="brew update && brew outdated && brew upgrade && brew prune && brew cleanup"
 alias cask-upgrade="brew update && brew cu && brew cask cleanup"
 
 #pip
@@ -67,11 +67,14 @@ alias gem-upgrade="gem update --system; gem update"
 #npm
 alias npm-upgrade="npm update -g"
 
+#vagrant
+alias vagrant-upgrade="vagrant plugin update"
+
 #vundle
 alias vundle-upgrade="vim +PluginInstall +qall"
 
 #all
-alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vundle-upgrade"
+alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vundle-upgrade"
 
 #adb
 alias acp="adb push"
