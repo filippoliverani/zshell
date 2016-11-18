@@ -58,7 +58,7 @@ alias ln='ln -i'
 alias osx-upgrade="sudo softwareupdate -ia"
 
 #brew
-alias brew-upgrade="brew update && brew bundle && brew prune && brew cleanup"
+alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cu && brew prune && brew cleanup && brew cask cleanup"
 
 #pip
 alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
