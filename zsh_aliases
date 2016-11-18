@@ -54,9 +54,11 @@ alias mv='mv -i'
 #alias rm='rm -I'                    # 'rm -i' prompts for every file
 alias ln='ln -i'
 
+#osx
+alias osx-upgrade="sudo softwareupdate -ia"
+
 #brew
-alias brew-upgrade="brew update && brew outdated && brew upgrade && brew prune && brew cleanup"
-alias cask-upgrade="brew update && brew cu && brew cask cleanup"
+alias brew-upgrade="brew update && brew bundle && brew prune && brew cleanup"
 
 #pip
 alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -74,7 +76,7 @@ alias vagrant-upgrade="vagrant plugin update"
 alias vundle-upgrade="vim +PluginInstall +qall"
 
 #all
-alias upgrade="brew-upgrade; cask-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vundle-upgrade"
+alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vundle-upgrade"
 
 #adb
 alias acp="adb push"
