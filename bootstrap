@@ -1,11 +1,11 @@
 #!/bin/sh
 
-path="$HOME/.zolarizedsh"
+path="$HOME/.zshell"
 
 if [ -e $path/.git ]; then
     cd $path && git pull
 else
-    git clone https://github.com/filippo-liverani/zolarizedsh.git $path
+    git clone https://github.com/filippo-liverani/zshell.git $path
 fi
 
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh

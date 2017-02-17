@@ -1,6 +1,8 @@
-zolarizedsh
-===========
+# Zshell
 
-My solarized based zsh configuration
+An effective zsh configuration
 
-    curl https://raw.github.com/filippo-liverani/zolarisedsh/master/bootstrap -L -o - | sh
+## Install
+```
+curl https://raw.github.com/filippo-liverani/zshell/master/bootstrap -L -o - | sh
+```
