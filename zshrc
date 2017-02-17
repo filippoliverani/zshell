@@ -1,7 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_CUSTOM=$HOME/.zolarizedsh
+ZSHELL=$HOME/.zshell
+ZSH_CUSTOM=$ZSHELL
 ZSH_THEME="pure"
-DEFAULT_USER="filippo"
+DEFAULT_USER=$(id -un)
 
 plugins=(brew git vi-mode vagrant tmux)
 
@@ -22,7 +23,7 @@ export EDITOR="vim"
 export HOMEBREW_NO_ANALYTICS=1
 export TERM="screen-256color"
 
-source $HOME/.zolarizedsh/functions
-source $HOME/.zolarizedsh/zsh_aliases
+source $ZSHELL/functions
+source $ZSHELL/zsh_aliases
 
 stty -ixon
