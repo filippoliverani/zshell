@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zolarizedsh
-ZSH_THEME="agnoster-light"
+ZSH_THEME="pure"
 DEFAULT_USER="filippo"
 
 plugins=(brew git vi-mode vagrant tmux)
@@ -20,6 +20,7 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export EDITOR="vim"
 export HOMEBREW_NO_ANALYTICS=1
+export TERM="screen-256color"
 
 source $HOME/.zolarizedsh/functions
 source $HOME/.zolarizedsh/zsh_aliases
