@@ -19,10 +19,11 @@ enter-tunnel() {
 }
 
 tmux-new() {
-    tmux new-session -d -n vim vim
-    tmux new-window -n shell
-    tmux new-window -n git
-    tmux -2 attach-session -d
+    name=${1-tmux}
+    tmux new-session -d -s "$name" -n vim vim
+    tmux new-window -t "$name:2" -n shell
+    tmux select-window -t "$name:1"
+    tmux switch-client -t "$name"
 }
 
 reset-dns() {
