@@ -10,13 +10,9 @@ alias svi='sudo vim'
 alias ping='ping -c 5'
 alias ..='cd ..'
 alias grep='grep --color=always'
-alias top="sudo htop"
-alias diff="colordiff"
-alias svn="colorsvn"
-alias wget="wget -c"
-alias tmux="TERM=screen-16color tmux"
-alias tmuxinator="TERM=screen-16color tmuxinator"
-alias flux='xflux -l 45.6931823 -g 9.6670895'
+alias top='sudo htop'
+alias diff='colordiff'
+alias wget='wget -c'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
@@ -24,8 +20,6 @@ alias du1='du --max-depth=1'
 alias hist='history | grep $1'
 alias openports='netstat --all --numeric --programs --inet --inet6'
 alias pg='ps -Af | grep $1'
-alias regrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias redate="sudo ntpdate ntp1.inrim.it"
 
 # privileged access
 if [ $UID -ne 0 ]; then
@@ -51,7 +45,7 @@ alias lm='la | more'
 # safety features
 alias cp='cp -i'
 alias mv='mv -i'
-#alias rm='rm -I'                    # 'rm -i' prompts for every file
+alias rm='rm -I'                    # 'rm -i' prompts for every file
 alias ln='ln -i'
 
 #osx
@@ -78,29 +72,14 @@ alias vundle-upgrade="vim +PluginInstall +qall"
 #all
 alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vundle-upgrade"
 
-#adb
-alias acp="adb push"
-alias abackup="adb backup -apk -shared -all -system -f ~/android-backup-$(date +\"%F\").ab"
-alias arestore="adb restore $(ls -lrt | awk '/android-backup/ { f=$NF };END{ print f }')"
-
 #racket
 alias rrepl="racket -i -p neil/sicp -l xrepl"
 
 #dev
-alias sst="svn st"
-alias sup="svn up"
-alias srm="svn rm"
-alias smv="svn mv"
-alias sci="svn ci -m"
-alias sdiff="svn diff --force | diff"
-alias srevertall="svn revert -R .; svn st | egrep -e \"^\?\" | awk '{ print \$2 }' | while read fileToAdd; do rm -rf \$fileToAdd; done"
-alias saddall="svn st | egrep -e \"^\?\" | awk '{ print \$2 }' | while read fileToAdd; do svn add \$fileToAdd; done"
-
 alias gst="git status"
 alias ga="git add -A; gst"
 alias gci="git commit -am"
 alias gl="git pull; git submodule update"
-alias gpull="git pull; git submodule update"
 alias gp="git push"
 gcip() {
   ga; gci "$@"; gp
