@@ -1,35 +1,35 @@
 function md() {
-    mkdir -p '$@' && cd '$@'
+  mkdir -p '$@' && cd '$@'
 }
 
 function search() {
-    find . -name '$1'
+  find . -name '$1'
 }
 
 replace() {
-    find . -name '$1' -type f -exec sed -i 's/$2/$3/g' {} \;
+  find . -name '$1' -type f -exec sed -i 's/$2/$3/g' {} \;
 }
 
 open-tunnel() {
-    ssh -g -R 2222:localhost:22 $1
+  ssh -g -R 2222:localhost:22 $1
 }
 
 enter-tunnel() {
-    ssh -t $1 'ssh -p 2222 $2@localhost'
+  ssh -t $1 'ssh -p 2222 $2@localhost'
 }
 
 tmux-new() {
-    name=${1-tmux}
-    tmux new-session -d -s "$name" -n vim vim
-    tmux new-window -t "$name:2" -n shell
-    tmux select-window -t "$name:1"
-    tmux switch-client -t "$name"
+  name=${1-tmux}
+  tmux new-session -d -s "$name" -n vim vim
+  tmux new-window -t "$name:2" -n shell
+  tmux select-window -t "$name:1"
+  tmux switch-client -t "$name"
 }
 
 reset-dns() {
-    sudo networksetup -listallnetworkservices | while read service
-    do
-        sudo networksetup -setdnsservers $service 193.183.98.154 5.9.49.12
-        sudo networksetup -setsearchdomains $service lan
-    done
+  sudo networksetup -listallnetworkservices | while read service
+  do
+    sudo networksetup -setdnsservers $service 193.183.98.154 5.9.49.12
+    sudo networksetup -setsearchdomains $service lan
+  done
 }
