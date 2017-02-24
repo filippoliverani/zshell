@@ -76,19 +76,22 @@ alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade;
 alias rrepl="racket -i -p neil/sicp -l xrepl"
 
 #dev
-alias gst="git status"
-alias ga="git add -A; gst"
-alias gci="git commit -am"
-alias gl="git pull; git submodule update"
-alias gp="git push"
-gcip() {
-  ga; gci "$@"; gp
-}
-alias grh="git reset HEAD"
-alias gco="git checkout --"
+alias gst="git st"
+alias ga="git aa"
+alias gci="git ci -m"
+alias gpl="git pl; git submodule update"
+alias gps="git ps"
+alias gus="git us"
+alias guc="git uc"
+alias gco="git co --"
 alias grm="git rm"
 alias gmv="git mv"
-alias gdiff="git diff; git diff --cached"
-alias glog="git lg"
-alias gremote="git remote -v"
+alias gdf="git df"
+alias gdc="git dc"
+alias glg="git lg"
+alias gbr="git br"
+alias gre="git remote -v"
 alias gundo="git reset --soft HEAD~1"
+gacips() {
+  ga && gci "$@" && gps
+}
