@@ -20,8 +20,10 @@ enter-tunnel() {
 
 tmux-new() {
   name=${1-tmux}
-  tmux new-session -d -s "$name" -n vim vim
+  dir=${2-~}
+  tmux new-session -d -c "$dir" -s "$name" -n work
   tmux new-window -t "$name:2" -n shell
+  tmux new-window -t "$name:3" -n git
   tmux select-window -t "$name:1"
   tmux switch-client -t "$name"
 }
