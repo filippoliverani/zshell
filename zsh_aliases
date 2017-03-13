@@ -1,5 +1,5 @@
 # modified commands
-alias ack='ag'
+alias ack='rg'
 alias more='less'
 alias df='dfc'
 alias du='cdu -idh'
@@ -52,7 +52,7 @@ alias ln='ln -i'
 alias osx-upgrade="sudo softwareupdate -ia"
 
 #brew
-alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cu && brew prune && brew cleanup && brew cask cleanup"
+alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cu -y && brew prune && brew cleanup && brew cask cleanup"
 
 #pip
 alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -75,7 +75,14 @@ alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade;
 #racket
 alias rrepl="racket -i -p neil/sicp -l xrepl"
 
-#dev
+#tmux
+alias t="tmux"
+alias tn="tmux-new"
+alias ta="tmux a -t"
+alias tl="tmux ls"
+
+#git
+alias g="git"
 alias gst="git st"
 alias ga="git aa"
 alias gci="git ci -m"
@@ -95,3 +102,20 @@ alias gundo="git reset --soft HEAD~1"
 gacips() {
   ga && gci "$@" && gps
 }
+
+#vagrant
+alias v="vagrant"
+alias vs="vagrant ssh"
+alias vu="vagrant up"
+alias vp="vagrant provision"
+alias vh="vagrant halt"
+alias vd="vagrant destroy"
+
+#docker
+alias d="docker"
+alias dr="docker run"
+alias db="docker build"
+alias dps="docker ps"
+alias di="docker images"
+alias dcu="docker-compose up"
+alias dcr="docker-compose run --rm"
