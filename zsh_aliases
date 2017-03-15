@@ -20,6 +20,8 @@ alias du1='du --max-depth=1'
 alias hist='history | grep $1'
 alias openports='netstat --all --numeric --programs --inet --inet6'
 alias pg='ps -Af | grep $1'
+alias lsop='sudo lsof -i :$1'
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # privileged access
 if [ $UID -ne 0 ]; then
