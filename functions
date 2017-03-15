@@ -34,4 +34,6 @@ reset-dns() {
     sudo networksetup -setdnsservers $service 193.183.98.154 5.9.49.12
     sudo networksetup -setsearchdomains $service lan
   done
+  sudo dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
 }
