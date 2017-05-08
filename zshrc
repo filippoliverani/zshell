@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSHELL=$HOME/.zshell
 ZSH_CUSTOM=$ZSHELL
-ZSH_THEME="pure"
+ZSH_THEME="refined"
 DEFAULT_USER=$(id -un)
 
 plugins=(brew git vi-mode vagrant tmux)
