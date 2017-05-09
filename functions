@@ -21,9 +21,9 @@ enter-tunnel() {
 tmux-new() {
   name=${1-tmux}
   dir=${2-~}
-  tmux new-session -d -c "$dir" -s "$name" -n work
-  tmux new-window -t "$name:2" -n shell
-  tmux new-window -t "$name:3" -n git
+  tmux new-session -d -c "$dir" -s "$name"
+  tmux new-window -t "$name:2" -c "$dir"
+  tmux new-window -t "$name:3" -c "$dir"
   tmux select-window -t "$name:1"
   tmux switch-client -t "$name"
 }
