@@ -63,7 +63,7 @@ alias pip-upgrade="pip install --upgrade pip; pip freeze --local | grep -v '^\-e
 alias gem-upgrade="gem update --system; gem update"
 
 #npm
-alias npm-upgrade="npm update -g"
+alias npm-upgrade="npm i -g npm; npm update -g"
 
 #vagrant
 alias vagrant-upgrade="vagrant plugin update"
