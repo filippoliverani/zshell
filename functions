@@ -37,3 +37,11 @@ reset-dns() {
   sudo dscacheutil -flushcache
   sudo killall -HUP mDNSResponder
 }
+
+reset-wifi() {
+  sudo networksetup -setairportpower en0 off
+  sudo networksetup -removepreferredwirelessnetwork en0 "$1"
+  sudo networksetup -addpreferredwirelessnetworkatindex en0 "$1" 0 ''
+  sudo networksetup -setairportpower en0 on
+  sudo networksetup -setairportnetwork en0 "$1"
+}
