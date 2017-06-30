@@ -39,9 +39,8 @@ reset-dns() {
 }
 
 reset-wifi() {
-  sudo networksetup -setairportpower en0 off
   sudo networksetup -removepreferredwirelessnetwork en0 "$1"
-  sudo networksetup -addpreferredwirelessnetworkatindex en0 "$1" 0 ''
+  sudo networksetup -setairportpower en0 off
   sudo networksetup -setairportpower en0 on
   sudo networksetup -setairportnetwork en0 "$1"
 }
