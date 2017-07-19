@@ -68,11 +68,11 @@ alias npm-upgrade="npm i -g npm; npm update -g"
 #vagrant
 alias vagrant-upgrade="vagrant plugin update"
 
-#vundle
-alias vundle-upgrade="vim +PluginInstall +qall"
+#vim
+alias vim-upgrade="vim +PackUpdate +qall"
 
 #all
-alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vundle-upgrade"
+alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vim-upgrade"
 
 #racket
 alias rrepl="racket -i -p neil/sicp -l xrepl"
