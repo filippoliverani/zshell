@@ -2,7 +2,7 @@
 
 set -e
 
-brew install zsh
+brew install zsh fzf
 
 path="$HOME/.zshell"
 
