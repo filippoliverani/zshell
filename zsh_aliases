@@ -10,9 +10,10 @@ alias svi='sudo vim'
 alias ping='ping -c 5'
 alias ..='cd ..'
 alias grep='grep --color=always'
-alias top='sudo htop'
+alias top='vtop'
 alias diff='colordiff'
 alias wget='wget -c'
+alias cat='ccat'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
@@ -49,6 +50,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'                    # 'rm -i' prompts for every file
 alias ln='ln -i'
+
+alias reset-ruby='brew uninstall --force --ignore-dependencies ruby && sudo rm -rf /usr/local/lib/ruby && brew install ruby && gem-upgrade && gem install bundler'
 
 #osx
 alias osx-upgrade="sudo softwareupdate -ia"

@@ -31,7 +31,7 @@ tmux-new() {
 reset-dns() {
   sudo networksetup -listallnetworkservices | while read service
   do
-    sudo networksetup -setdnsservers $service 8.8.8.8 8.8.4.4
+    sudo networksetup -setdnsservers $service 9.9.9.9
     sudo networksetup -setsearchdomains $service lan
   done
   sudo dscacheutil -flushcache
@@ -43,4 +43,12 @@ reset-wifi() {
   sudo networksetup -setairportpower en0 off
   sudo networksetup -setairportpower en0 on
   sudo networksetup -setairportnetwork en0 "$1"
+}
+
+set-wifi-macaddress() {
+  random_address=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+  address=${1-$random_address}
+  sudo ifconfig en0 ether $address
+  sudo networksetup -setairportpower en0 off
+  sudo networksetup -setairportpower en0 on
 }
