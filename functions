@@ -29,9 +29,9 @@ tmux-new() {
 }
 
 reset-dns() {
-  sudo networksetup -listallnetworkservices | while read service
+  sudo networksetup -listallnetworkservices | grep -v "An asterisk" | while read service
   do
-    sudo networksetup -setdnsservers $service 9.9.9.9
+    sudo networksetup -setdnsservers $service 1.1.1.1
     sudo networksetup -setsearchdomains $service lan
   done
   sudo dscacheutil -flushcache
