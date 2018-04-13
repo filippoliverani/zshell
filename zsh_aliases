@@ -72,7 +72,7 @@ alias npm-upgrade="npm i -g npm; npm update -g"
 alias vagrant-upgrade="vagrant plugin update"
 
 #vim
-alias vim-upgrade="vim +PackUpdate +qall"
+alias vim-upgrade="vim +PlugClean! +PlugUpgrade +PlugInstall +qall"
 
 #all
 alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vim-upgrade"
