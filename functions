@@ -52,3 +52,16 @@ set-wifi-macaddress() {
   sudo networksetup -setairportpower en0 off
   sudo networksetup -setairportpower en0 on
 }
+
+update-hosts() {
+  sudo cp -f /etc/hosts /etc/hosts_bck
+  wget "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" -O- > /tmp/etc_hosts
+  cat ~/.hosts >> /tmp/etc_hosts
+  sudo mv /tmp/etc_hosts /etc/hosts
+  sudo dscacheutil -flushcache
+}
+
+update-android-hosts() {
+  update-hosts
+  adb push /etc/hosts /system/etc
+}
