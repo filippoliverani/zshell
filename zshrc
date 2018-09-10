@@ -19,7 +19,7 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/completion.zsh
 fi
 
-PYTHONPATH+=(/usr/local/lib/python3.6/site-packages(N-/))
+PYTHONPATH+=(/usr/local/lib/python3.7/site-packages(N-/))
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/ruby/bin:~/.composer/vendor/bin
 export PYTHONPATH
