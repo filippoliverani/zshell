@@ -60,8 +60,3 @@ update-hosts() {
   sudo mv /tmp/etc_hosts /etc/hosts
   sudo dscacheutil -flushcache
 }
-
-update-android-hosts() {
-  update-hosts
-  adb push /etc/hosts /system/etc
-}
