@@ -57,7 +57,7 @@ alias reset-ruby='brew uninstall --force --ignore-dependencies ruby && sudo rm -
 alias osx-upgrade="sudo softwareupdate -ia"
 
 #brew
-alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cu -afy && brew prune && brew cleanup && brew cask cleanup"
+alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cask upgrade --greedy && brew prune && brew cleanup && brew cask cleanup"
 
 #pip
 alias pip-upgrade="pip2 install --upgrade pip; pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
@@ -75,7 +75,7 @@ alias vagrant-upgrade="vagrant plugin update"
 alias vim-upgrade="vim +PlugClean! +PlugUpgrade +PlugInstall +qall"
 
 #all
-alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vim-upgrade"
+alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vim-upgrade; update-hosts"
 
 #racket
 alias rrepl="racket -i -p neil/sicp -l xrepl"
