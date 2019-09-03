@@ -21,7 +21,10 @@ fi
 
 PYTHONPATH+=(/usr/local/lib/python3.7/site-packages(N-/))
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/ruby/bin:~/.composer/vendor/bin
+export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 export PYTHONPATH
 export GOPATH=$HOME/go
 export LC_ALL="en_US.UTF-8"

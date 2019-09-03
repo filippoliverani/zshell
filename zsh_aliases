@@ -57,10 +57,10 @@ alias reset-ruby='brew uninstall --force --ignore-dependencies ruby && sudo rm -
 alias osx-upgrade="sudo softwareupdate -ia"
 
 #brew
-alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cask upgrade --greedy && brew prune && brew cleanup"
+alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cask upgrade --greedy && brew cleanup"
 
 #pip
-alias pip-upgrade="pip2 install --upgrade pip; pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
+alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
 #gem
 alias gem-upgrade="gem update --system; gem update"
