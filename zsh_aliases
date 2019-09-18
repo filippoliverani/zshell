@@ -13,7 +13,7 @@ alias grep='grep --color=always'
 alias top='glances'
 alias diff='colordiff'
 alias wget='wget -c'
-alias cat='ccat'
+alias cat='bat'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
