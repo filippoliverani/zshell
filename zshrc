@@ -1,18 +1,59 @@
-ZSH=$HOME/.oh-my-zsh
-ZSHELL=$HOME/.zshell
-ZSH_CUSTOM=$ZSHELL
-ZSH_THEME="refined"
-DEFAULT_USER=$(id -un)
+#!/bin/zsh
 
-plugins=(brew git vi-mode vagrant tmux)
+export ZSHELL_HOME="$HOME/.zshell"
+export ZPLUG_HOME=/usr/local/opt/zplug
+export ZSH_CACHE_DIR="$HOME/.zsh_cache"
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=50000
+export SAVEHIST=10000
+export DEFAULT_USER=$(id -un)
+
+source $ZPLUG_HOME/init.zsh
+
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "plugins/bundler", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/osx", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/ruby", from:oh-my-zsh
+zplug "plugins/rake", from:oh-my-zsh
+zplug "plugins/vagrant", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "unixorn/autoupdate-antigen.zshplugin"
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "laurenkt/zsh-vimto"
+
+zplug load
 
 bindkey -v
 
-source $ZSH/oh-my-zsh.sh
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
+setopt share_history
 
+ # Completion
 unset GREP_OPTIONS
 unsetopt correct_all
 unsetopt correct
+ setopt auto_menu
+ setopt always_to_end
+ setopt complete_in_word
+ unsetopt flow_control
+ unsetopt menu_complete
+ zstyle ':completion:*:*:*:*:*' menu select
+ zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+ zstyle ':completion::complete:*' use-cache 1
+ zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
+ zstyle ':completion:*' list-colors ''
+ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+
 
 if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/key-bindings.zsh
@@ -37,7 +78,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_R_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
-source $ZSHELL/functions
-source $ZSHELL/zsh_aliases
+source $ZSHELL_HOME/functions
+source $ZSHELL_HOME/zsh_aliases
 
 stty -ixon

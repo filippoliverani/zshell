@@ -51,30 +51,16 @@ alias mv='mv -i'
 alias rm='rm -i'                    # 'rm -i' prompts for every file
 alias ln='ln -i'
 
+#upgrade
 alias reset-ruby='brew uninstall --force --ignore-dependencies ruby && sudo rm -rf /usr/local/lib/ruby && brew install ruby && gem-upgrade && gem install bundler'
-
-#osx
 alias osx-upgrade="sudo softwareupdate -ia"
-
-#brew
 alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cask upgrade --greedy && brew cleanup"
-
-#pip
 alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
-
-#gem
 alias gem-upgrade="gem update --system; gem update"
-
-#npm
 alias npm-upgrade="npm i -g npm; npm update -g"
-
-#vagrant
 alias vagrant-upgrade="vagrant plugin update"
-
-#vim
-alias vim-upgrade="vim +PlugClean! +PlugUpgrade +PlugInstall +qall"
-
-#all
+alias vim-upgrade="vim +PlugClean! +PlugInstall +PlugUpgrade +qall"
+alias zsh-upgrade="zplug clean; zplug install; zplug update"
 alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vim-upgrade; update-hosts"
 
 #racket
