@@ -17,4 +17,5 @@ ln -sf $path/zshrc ~/.zshrc
 ln -sf $path/zsh_aliases ~/.zsh_aliases
 mkdir -p "$HOME/.zsh_cache"
 
+sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
