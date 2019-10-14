@@ -23,7 +23,6 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "unixorn/autoupdate-antigen.zshplugin"
-zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "laurenkt/zsh-vimto"
 

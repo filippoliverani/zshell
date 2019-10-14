@@ -2,16 +2,16 @@
 
 set -e
 
-brew install zsh fzf zplug
-npm install --global pure-prompt
-
 path="$HOME/.zshell"
 
 if [ -e $path/.git ]; then
-    cd $path && git pull
+  cd $path && git pull
 else
-    git clone https://github.com/filippo-liverani/zshell.git $path
+  git clone https://github.com/filippoliverani/zshell.git $path
 fi
+
+brew install zsh fzf zplug
+npm install --global pure-prompt
 
 ln -sf $path/zshrc ~/.zshrc
 ln -sf $path/zsh_aliases ~/.zsh_aliases
@@ -19,3 +19,5 @@ mkdir -p "$HOME/.zsh_cache"
 
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
+
+zsh -c "source ~/.zshrc && zplug install"
