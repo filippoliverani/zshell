@@ -54,9 +54,18 @@ set-wifi-macaddress() {
 }
 
 update-hosts() {
-  sudo cp -f /etc/hosts /etc/hosts_bck
+  sudo 'cp' -f /etc/hosts /etc/hosts_bck
   wget "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" -O- > /tmp/etc_hosts
   cat ~/.hosts >> /tmp/etc_hosts
-  sudo mv /tmp/etc_hosts /etc/hosts
+  sudo 'mv' -f /tmp/etc_hosts /etc/hosts_blocking
+}
+
+enable-hosts-blocking() {
+  sudo 'cp' -f /etc/hosts_blocking /etc/hosts
+  sudo dscacheutil -flushcache
+}
+
+disable-hosts-blocking() {
+  sudo 'cp' -f ~/.hosts /etc/hosts
   sudo dscacheutil -flushcache
 }
