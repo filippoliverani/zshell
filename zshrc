@@ -23,7 +23,6 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "unixorn/autoupdate-antigen.zshplugin"
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "laurenkt/zsh-vimto"
 
 zplug load
@@ -61,9 +60,18 @@ fi
 
 PYTHONPATH+=(/usr/local/lib/python3.7/site-packages(N-/))
 
-export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
+export PATH=/usr/local/opt/curl/bin
+export PATH=$PATH:/usr/local/opt/node@12/bin
+export PATH=$PATH:/usr/local/opt/openjdk/bin
+export PATH=$PATH:/usr/local/opt/ruby@2.6/bin:/usr/local/lib/ruby/gems/2.6.0/bin
+export PATH=$PATH:/usr/bin/vendor_perl:/usr/bin/core_perl
+export PATH=$PATH:/usr/local/opt/python/libexec/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export CPPFLAGS="-I/usr/local/opt/ruby/include -I/usr/local/opt/openjdk/include"
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export DYLD_INSERT_LIBRARIES="/usr/local/opt/jemalloc/lib/libjemalloc.dylib"
+export MALLOC_ARENA_MAX=2
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 export PYTHONPATH
 export GOPATH=$HOME/go
@@ -81,3 +89,5 @@ source $ZSHELL_HOME/functions
 source $ZSHELL_HOME/zsh_aliases
 
 stty -ixon
+
+eval "$(starship init zsh)"

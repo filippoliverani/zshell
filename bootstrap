@@ -10,7 +10,7 @@ else
   git clone https://github.com/filippoliverani/zshell.git $path
 fi
 
-brew install zsh fzf zplug
+brew install starship zsh fzf zplug zsh-autosuggestions
 npm install --global pure-prompt
 
 ln -sf $path/zshrc ~/.zshrc
