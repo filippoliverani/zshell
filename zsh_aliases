@@ -1,26 +1,27 @@
 # modified commands
-alias ack='rg'
+alias ack='grc rg'
 alias more='less'
 alias df='dfc'
-alias du='cdu -idh'
+alias du='grc du -h'
 alias mkdir='mkdir -p -v'
 alias bc='bc -l'
 alias vi='vim'
 alias svi='sudo vim'
-alias ping='ping -c 5'
+alias ping='grc ping -c 5'
 alias ..='cd ..'
 alias grep='grep --color=always'
 alias top='glances'
 alias diff='colordiff'
-alias wget='wget -c'
+alias wget='grc wget -c'
 alias cat='bat'
+alias tails='grc tail'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
-alias du1='du --max-depth=1'
+alias du1='du -d=1'
 alias hist='history | grep $1'
-alias openports='netstat --all --numeric --programs --inet --inet6'
-alias pg='ps -Af | grep $1'
+alias openports='sudo lsof -PiTCP -sTCP:LISTEN'
+alias pg='grc ps -Af | grep $1'
 alias lsop='sudo lsof -i :$1'
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 
@@ -83,6 +84,7 @@ alias gps="git ps"
 alias gus="git us"
 alias guc="git uc"
 alias gco="git co --"
+alias grb="git rb"
 alias grm="git rm"
 alias gmv="git mv"
 alias gdf="git df"
@@ -91,9 +93,16 @@ alias glg="git lg"
 alias gbr="git br"
 alias gre="git remote -v"
 alias gundo="git reset --soft HEAD~1"
+alias rmb="!f() { git branch --merged | grep -v 'master' | while read i; do git branch -d $i; done; }; f"
 gacips() {
   ga && gci "$@" && gps
 }
+
+#bundler
+alias bi="bundle install"
+alias bu="bundle update"
+alias be="bundle exec"
+alias ber="bundle exec rake"
 
 #vagrant
 alias v="vagrant"
