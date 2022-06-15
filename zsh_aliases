@@ -1,20 +1,23 @@
 # modified commands
-alias ack='grc rg'
-alias more='less'
-alias df='dfc'
-alias du='grc du -h'
-alias mkdir='mkdir -p -v'
-alias bc='bc -l'
-alias vi='vim'
-alias svi='sudo vim'
-alias ping='grc ping -c 5'
 alias ..='cd ..'
-alias grep='grep --color=always'
-alias top='glances'
-alias diff='colordiff'
-alias wget='grc wget -c'
+alias ack='grc rg'
+alias bc='bc -l'
 alias cat='bat'
+alias df='dfc'
+alias dig='dog'
+alias diff='delta'
+alias du='ndu'
+alias grep='grep --color=always'
+alias man='tldr'
+alias mkdir='mkdir -p -v'
+alias more='less'
+alias ping='grc ping -c 5'
+alias svi='sudo vim'
 alias tails='grc tail'
+alias top='glances'
+alias tree='ranger'
+alias vi='vim'
+alias wget='grc wget -c'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
@@ -55,7 +58,7 @@ alias ln='ln -i'
 #upgrade
 alias reset-ruby='brew uninstall --force --ignore-dependencies ruby && sudo rm -rf /usr/local/lib/ruby && brew install ruby && gem-upgrade && gem install bundler'
 alias osx-upgrade="sudo softwareupdate -ia"
-alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew cask upgrade --greedy && brew cleanup"
+alias brew-upgrade="brew update && brew bundle --global && brew upgrade && brew upgrade --cask --greedy && brew cleanup"
 alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias gem-upgrade="gem update --system; gem update"
 alias npm-upgrade="npm update -g"
@@ -63,7 +66,7 @@ alias vagrant-upgrade="vagrant plugin update"
 alias vim-upgrade="vim +PlugClean! +PlugInstall +PlugUpgrade +qall"
 alias zsh-upgrade="zplug clean; zplug install; zplug update"
 alias hosts-upgrade="update-hosts; enable-hosts-blocking"
-alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vagrant-upgrade; vim-upgrade; hosts-upgrade"
+alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vim-upgrade; hosts-upgrade"
 
 #racket
 alias rrepl="racket -i -p neil/sicp -l xrepl"
@@ -76,27 +79,26 @@ alias tl="tmux ls"
 
 #git
 alias g="git"
-alias gst="git st"
+alias gl="git pl"
 alias ga="git aa"
+alias gbr="git br"
 alias gci="git ci -m"
+alias gco="git co --"
+alias gdc="git dc"
+alias gdf="git df"
+alias gfu="git fu"
+alias glg="git lg"
+alias gmv="git mv"
 alias gpl="git pl; git submodule update"
 alias gps="git ps"
-alias gus="git us"
-alias guc="git uc"
-alias gco="git co --"
 alias grb="git rb"
-alias grm="git rm"
-alias gmv="git mv"
-alias gdf="git df"
-alias gdc="git dc"
-alias glg="git lg"
-alias gbr="git br"
 alias gre="git remote -v"
+alias grm="git rm"
+alias gst="git st"
+alias guc="git uc"
 alias gundo="git reset --soft HEAD~1"
+alias gus="git us"
 alias rmb="!f() { git branch --merged | grep -v 'master' | while read i; do git branch -d $i; done; }; f"
-gacips() {
-  ga && gci "$@" && gps
-}
 
 #bundler
 alias bi="bundle install"
@@ -122,3 +124,45 @@ alias dps="docker ps"
 alias di="docker images"
 alias dcu="docker-compose up"
 alias dcr="docker-compose run --rm"
+
+#rails
+alias railss="(bundle check || bundle install) \
+  yarn & \
+  bin/rake clear; \
+  bin/rake heroku:local"
+
+#work session
+alias start-working="disable-hosts-blocking; \
+  open -a 'Firefox Developer Edition' & \
+  open -a Docker & \
+  open -a Loopback & \
+  open -a 'Audio Hijack' & \
+  open -a 'Elgato Control Center' & \
+  open -a Harvest & \
+  open -a Home & \
+  open -a Slack &"
+
+alias stop-working="enable-hosts-blocking; \
+  osascript -e 'quit app \"Docker\"' \
+  -e 'quit app \"Firefox Developer Edition\"' \
+  -e 'quit app \"Loopback\"' \
+  -e 'quit app \"Audio Hijack\"' \
+  -e 'quit app \"Elgato Control Center\"' \
+  -e 'quit app \"Harvest\"' \
+  -e 'quit app \"Home\"' \
+  -e 'quit app \"Slack\"'"
+
+#ruby
+alias change_ruby_2="RUBY_HOME=/usr/local/opt/ruby@2.7; \
+  RUBY_GEMS_HOME=/usr/local/lib/ruby/gems/2.7.0; \
+  export PATH=$RUBY_HOME/bin:$RUBY_GEMS_HOME/bin:$PATH; \
+  export LDFLAGS=-L$RUBY_HOME/lib; \
+  export CPPFLAGS=-I$RUBY_HOME/include; \
+  export PKG_CONFIG_PATH=$RUBY_HOME/lib/pkgconfig"
+
+alias change_ruby_3="RUBY_HOME=/usr/local/opt/ruby; \
+  RUBY_GEMS_HOME=/usr/local/lib/ruby/gems/3.0.0; \
+  export PATH=$RUBY_HOME/bin:$RUBY_GEMS_HOME/bin:$PATH; \
+  export LDFLAGS=-L$RUBY_HOME/lib; \
+  export CPPFLAGS=-I$RUBY_HOME/include; \
+  export PKG_CONFIG_PATH=$RUBY_HOME/lib/pkgconfig"
