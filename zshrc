@@ -21,6 +21,7 @@ zplug "plugins/rake", from:oh-my-zsh
 zplug "plugins/vagrant", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "unixorn/autoupdate-antigen.zshplugin"
 zplug "laurenkt/zsh-vimto"
@@ -58,21 +59,31 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/completion.zsh
 fi
 
+RUBY_HOME=/usr/local/opt/ruby
+RUBY_GEMS_HOME=/usr/local/lib/ruby/gems/3.0.0
+
+# RUBY_HOME=/usr/local/opt/ruby@2.7
+# RUBY_GEMS_HOME=/usr/local/lib/ruby/gems/2.7.0
+
+# NODE_HOME=/usr/local/opt/node
+# NODE_HOME=/usr/local/opt/node@14
+NODE_HOME=/usr/local/opt/node@16
+
 PYTHONPATH+=(/usr/local/lib/python3.7/site-packages(N-/))
 
 export PATH=/usr/local/opt/curl/bin
-export PATH=$PATH:/usr/local/opt/node@12/bin
+export PATH=$PATH:$NODE_HOME/bin
 export PATH=$PATH:/usr/local/opt/openjdk/bin
-export PATH=$PATH:/usr/local/opt/ruby@2.6/bin:/usr/local/lib/ruby/gems/2.6.0/bin
+export PATH=$PATH:$RUBY_HOME/bin:$RUBY_GEMS_HOME/bin
 export PATH=$PATH:/usr/bin/vendor_perl:/usr/bin/core_perl
 export PATH=$PATH:/usr/local/opt/python/libexec/bin
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include -I/usr/local/opt/openjdk/include"
+export LDFLAGS="-L$RUBY_HOME/lib"
+export CPPFLAGS="-I$RUBY_HOME/include -I/usr/local/opt/openjdk/include"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export DYLD_INSERT_LIBRARIES="/usr/local/opt/jemalloc/lib/libjemalloc.dylib"
 export MALLOC_ARENA_MAX=2
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+export PKG_CONFIG_PATH=$RUBY_HOME/lib/pkgconfig
 export PYTHONPATH
 export GOPATH=$HOME/go
 export LC_ALL="en_US.UTF-8"
@@ -91,3 +102,10 @@ source $ZSHELL_HOME/zsh_aliases
 stty -ixon
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+ulimit -n 10240
+
+source /Users/filippo/.config/broot/launcher/bash/br
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
