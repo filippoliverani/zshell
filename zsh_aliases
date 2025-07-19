@@ -40,9 +40,9 @@ if [ $UID -ne 0 ]; then
 fi
 
 # ls
-alias ls='exa -GFh'
-alias lr='exa -R'
-alias ll='exa -al'
+alias ls='eza -alf --color=always'
+alias lr='eza -R'
+alias ll='eza -al'
 alias la='ll -A'
 alias lx='ll -BX'                   # sort by extension
 alias lz='ll -rS'                   # sort by size
@@ -59,14 +59,13 @@ alias ln='ln -i'
 alias reset-ruby='brew uninstall --force --ignore-dependencies ruby && sudo rm -rf /opt/homebrew/lib/ruby && brew install ruby && gem-upgrade && gem install bundler'
 alias osx-upgrade="sudo softwareupdate -ia"
 alias brew-upgrade="(cd /opt/homebrew && git reset --hard origin/master) && brew update && brew bundle --global && brew upgrade && brew upgrade --cask --greedy && brew cleanup"
-alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias gem-upgrade="gem update --system; gem update"
-alias npm-upgrade="npm update -g"
-alias vagrant-upgrade="vagrant plugin update"
+alias npm-upgrade="sudo npm update -g"
 alias vim-upgrade="vim +PlugClean! +PlugInstall +PlugUpgrade +qall"
+alias nvim-upgrade="nvim --headless '+Lazy! sync' +qa"
 alias zsh-upgrade="zplug clean; zplug install; zplug update"
 alias hosts-upgrade="update-hosts; enable-hosts-blocking"
-alias upgrade="osx-upgrade; brew-upgrade; pip-upgrade; gem-upgrade; npm-upgrade; vim-upgrade; hosts-upgrade"
+alias upgrade="osx-upgrade; brew-upgrade; gem-upgrade; npm-upgrade; nvim-upgrade; vim-upgrade; hosts-upgrade"
 
 #racket
 alias rrepl="racket -i -p neil/sicp -l xrepl"

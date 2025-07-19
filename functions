@@ -55,8 +55,9 @@ set-wifi-macaddress() {
 
 update-hosts() {
   sudo 'cp' -f /etc/hosts /etc/hosts_bck
-  wget "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" -O- > /tmp/etc_hosts
+  wget "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/pro-compressed.txt" -O- > /tmp/etc_hosts
   cat ~/.hosts >> /tmp/etc_hosts
+  sudo sed -i '' -E 's/[^[:space:]]*(sentry\.io|sentry-cdn\.com|cdn.optimizely.com)//g' /tmp/etc_hosts
   sudo 'mv' -f /tmp/etc_hosts /etc/hosts_blocking
 }
 
